@@ -1,79 +1,85 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Camp-in | Login</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./style.css" />
-    <title>Document</title>
-  </head>
-  <body>
-    <main class="page-container">
-        <section class="form-side">
-            <header class="form-side__header">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <main class="container">
+        <section class="form-section">
+            <div class="top-logo">
                 <img src="images/logo.svg" alt="Camp-in Logo">
-            </header>
+            </div>
 
-            <div class="login-wrapper">
-                <div class="login-header">
-                    <h1>
-                        <img src="images/log-in.svg" alt="" aria-hidden="true">
+            <div class="login-card">
+                <header class="card-header">
+                    <h2>
+                        <img src="images/log-in.svg" alt="" class="login-icon">
                         Login
-                    </h1>
-                    <p>Insert your information below.</p>
-                </div>
+                    </h2>
+                    <p class="subtitle">Insert your information below</p>
+                </header>
 
-                <form class="login-form">
-                    <div class="input-block">
+                <form>
+                    <div class="field">
                         <label for="email">E-mail</label>
-                        <div class="input-field">
-                            <img src="images/mail.svg" alt="" class="field-icon">
-                            <input type="email" id="email" placeholder="Type your email" required>
+                        <div class="input-wrapper">
+                            <img src="images/mail.svg" alt="" class="inner-icon">
+                            <input type="email" id="email" placeholder="your@email.com" required>
                         </div>
                     </div>
 
-                    <div class="input-block">
+                    <div class="field">
                         <label for="password">Password</label>
-                        <div class="input-field">
-                            <img src="images/lock.svg" alt="" class="field-icon">
+                        <div class="input-wrapper">
+                            <img src="images/lock.svg" alt="" class="inner-icon">
                             <input 
                                 type="password" 
                                 id="password" 
-                                placeholder="Type your password" 
-                                required 
+                                placeholder="••••••••" 
+                                required
                                 pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                                title="Must contain at least 8 characters, including one uppercase letter and one number."
                             >
-                            <button type="button" class="eye-btn">
-                                <img src="images/eye.svg" alt="Toggle visibility">
+                            <button type="button" class="eye-btn" id="togglePassword">
+                                <img src="images/eye.svg" alt="Show/Hide">
                             </button>
                         </div>
                     </div>
 
-                    <div class="form-utils">
-                        <label class="check-container">
+                    <div class="row">
+                        <label class="checkbox-label">
                             <input type="checkbox">
-                            <span class="square"></span>
+                            <span class="custom-checkbox"></span>
                             Remind me
                         </label>
-                        <a href="#" class="link-forgot">Forgot my password</a>
+                        <a href="#" class="forgot-link">Forgot my password</a>
                     </div>
 
-                    <button type="submit" class="submit-btn">LOGIN</button>
-                </form>
+                    <button type="submit" class="login-btn">LOGIN</button>
 
-                <footer class="signup-footer">
-                    Don't have an account? <a href="#">Sign up!</a>
-                </footer>
+                    <p class="signup-text">
+                        Don't have an account? <a href="#">Sign up!</a>
+                    </p>
+                </form>
             </div>
         </section>
 
-        <section class="image-side">
-            </section>
+        <section class="image-section"></section>
     </main>
-  </body>
+
+    <script>
+        // Password visibility toggle
+        const togglePassword = document.getElementById('togglePassword');
+        const passwordInput = document.getElementById('password');
+
+        togglePassword.addEventListener('click', function() {
+            // Toggle the type attribute
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+        });
+    </script>
+</body>
 </html>
